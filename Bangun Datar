@@ -1,0 +1,123 @@
+// Kelas dasar untuk bangun datar
+class BangunDatar {
+    // Metode menghitung luas
+    double hitungLuas() {
+        System.out.println("Luas bangun datar belum diimplementasikan.");
+        return 0;
+    }
+
+    // Metode menghitung keliling
+    double hitungKeliling() {
+        System.out.println("Keliling bangun datar belum diimplementasikan.");
+        return 0;
+    }
+
+    // Metode overriding toString
+    @Override
+    public String toString() {
+        return "Ini adalah bangun datar.";
+    }
+}
+
+// Kelas turunan untuk segitiga
+class Segitiga extends BangunDatar {
+    double alas;
+    double tinggi;
+    double sisi1;
+    double sisi2;
+    double sisi3;
+
+    // Overriding metode hitungLuas
+    @Override
+    double hitungLuas() {
+        return 0.5 * alas * tinggi;
+    }
+
+    // Overriding metode hitungKeliling
+    @Override
+    double hitungKeliling() {
+        return sisi1 + sisi2 + sisi3;
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah segitiga " + jenis + ".";
+    }
+}
+
+// Kelas turunan untuk persegi
+class Persegi extends BangunDatar {
+    double sisi;
+
+    // Overriding metode hitungLuas
+    @Override
+    double hitungLuas() {
+        return sisi * sisi;
+    }
+
+    // Overriding metode hitungKeliling
+    @Override
+    double hitungKeliling() {
+        return 4 * sisi;
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah persegi " + jenis + ".";
+    }
+}
+
+// Kelas turunan untuk lingkaran
+class Lingkaran extends BangunDatar {
+    double jariJari;
+
+    // Overriding metode hitungLuas
+    @Override
+    double hitungLuas() {
+        return Math.PI * Math.pow(jariJari, 2);
+    }
+
+    // Overriding metode hitungKeliling
+    @Override
+    double hitungKeliling() {
+        return 2 * Math.PI * jariJari;
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah lingkaran " + jenis + ".";
+    }
+}
+
+// Kelas utama
+public class Main {
+    public static void main(String[] args) {
+        // Contoh penggunaan segitiga
+        Segitiga segitiga = new Segitiga();
+        segitiga.alas = 5;
+        segitiga.tinggi = 8;
+        segitiga.sisi1 = 3;
+        segitiga.sisi2 = 4;
+        segitiga.sisi3 = 5;
+
+        System.out.println("Luas segitiga: " + segitiga.hitungLuas());
+        System.out.println("Keliling segitiga: " + segitiga.hitungKeliling());
+        System.out.println(segitiga.toString("segitiga"));
+
+        // Contoh penggunaan persegi
+        Persegi persegi = new Persegi();
+        persegi.sisi = 6;
+
+        System.out.println("Luas persegi: " + persegi.hitungLuas());
+        System.out.println("Keliling persegi: " + persegi.hitungKeliling());
+        System.out.println(persegi.toString("persegi"));
+
+        // Contoh penggunaan lingkaran
+        Lingkaran lingkaran = new Lingkaran();
+        lingkaran.jariJari = 4;
+
+        System.out.println("Luas lingkaran: " + lingkaran.hitungLuas());
+        System.out.println("Keliling lingkaran: " + lingkaran.hitungKeliling());
+        System.out.println(lingkaran.toString("lingkaran"));
+    }
+}
