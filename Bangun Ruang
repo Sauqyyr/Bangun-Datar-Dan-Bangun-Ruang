@@ -1,0 +1,129 @@
+Berikut adalah contoh implementasi untuk kelas bangun ruang (bola, tabung, limas segitiga, kubus) dalam bahasa pemrograman Java:
+
+```java
+import java.util.Scanner;
+
+// Kelas dasar untuk bangun ruang
+class BangunRuang {
+    // Metode menghitung volume
+    double hitungVolume() {
+        System.out.println("Volume bangun ruang belum diimplementasikan.");
+        return 0;
+    }
+
+    // Metode overriding toString
+    @Override
+    public String toString() {
+        return "Ini adalah bangun ruang.";
+    }
+}
+
+// Kelas turunan untuk bola
+class Bola extends BangunRuang {
+    double jariJari;
+
+    // Overriding metode hitungVolume
+    @Override
+    double hitungVolume() {
+        return (4.0 / 3.0) * Math.PI * Math.pow(jariJari, 3);
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah bola " + jenis + ".";
+    }
+}
+
+// Kelas turunan untuk tabung
+class Tabung extends BangunRuang {
+    double jariJari;
+    double tinggi;
+
+    // Overriding metode hitungVolume
+    @Override
+    double hitungVolume() {
+        return Math.PI * Math.pow(jariJari, 2) * tinggi;
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah tabung " + jenis + ".";
+    }
+}
+
+// Kelas turunan untuk limas segitiga
+class LimasSegitiga extends BangunRuang {
+    double luasAlas;
+    double tinggi;
+
+    // Overriding metode hitungVolume
+    @Override
+    double hitungVolume() {
+        return (1.0 / 3.0) * luasAlas * tinggi;
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah limas segitiga " + jenis + ".";
+    }
+}
+
+// Kelas turunan untuk kubus
+class Kubus extends BangunRuang {
+    double sisi;
+
+    // Overriding metode hitungVolume
+    @Override
+    double hitungVolume() {
+        return Math.pow(sisi, 3);
+    }
+
+    // Overloading metode toString
+    public String toString(String jenis) {
+        return "Ini adalah kubus " + jenis + ".";
+    }
+}
+
+// Kelas utama
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Contoh penggunaan bola
+        Bola bola = new Bola();
+        System.out.print("Masukkan jari-jari bola: ");
+        bola.jariJari = scanner.nextDouble();
+        System.out.println("Volume bola: " + bola.hitungVolume());
+        System.out.println(bola.toString("bola"));
+
+        // Contoh penggunaan tabung
+        Tabung tabung = new Tabung();
+        System.out.print("Masukkan jari-jari tabung: ");
+        tabung.jariJari = scanner.nextDouble();
+        System.out.print("Masukkan tinggi tabung: ");
+        tabung.tinggi = scanner.nextDouble();
+        System.out.println("Volume tabung: " + tabung.hitungVolume());
+        System.out.println(tabung.toString("tabung"));
+
+        // Contoh penggunaan limas segitiga
+        LimasSegitiga limasSegitiga = new LimasSegitiga();
+        System.out.print("Masukkan luas alas limas segitiga: ");
+        limasSegitiga.luasAlas = scanner.nextDouble();
+        System.out.print("Masukkan tinggi limas segitiga: ");
+        limasSegitiga.tinggi = scanner.nextDouble();
+        System.out.println("Volume limas segitiga: " + limasSegitiga.hitungVolume());
+        System.out.println(limasSegitiga.toString("limas segitiga"));
+
+        // Contoh penggunaan kubus
+        Kubus kubus = new Kubus();
+        System.out.print("Masukkan panjang sisi kubus: ");
+        kubus.sisi = scanner.nextDouble();
+        System.out.println("Volume kubus: " + kubus.hitungVolume());
+        System.out.println(kubus.toString("kubus"));
+
+        scanner.close();
+    }
+}
+```
+
+Kode di atas menunjukkan contoh implementasi untuk kelas Bola, Tabung, LimasSegitiga, dan Kubus yang merupakan turunan dari kelas BangunRuang. Program utama meminta input dari pengguna untuk menghitung volume masing-masing bangun ruang dan menampilkan informasi jenis bangun ruang.
