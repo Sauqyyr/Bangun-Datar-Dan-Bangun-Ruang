@@ -1,4 +1,4 @@
-// Kelas dasar untuk bangun datar
+
 class BangunDatar {
     // Metode menghitung luas
     double hitungLuas() {
